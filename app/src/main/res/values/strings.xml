@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">My Notes</string>
+    <string name="add_title">Title</string>
+    <string name="details">Note</string>
+    <string name="date">Pick A Date</string>
+    <string name="time">Time</string>
+</resources>

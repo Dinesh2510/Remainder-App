@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="20dp"
+    android:background="#ffff"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="0dp"
+            android:background="#ffff"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="15dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30sp"
+                    android:src="@drawable/edit" />
+
+                <TextView
+                    android:id="@+id/l_notes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="Edit Form"
+                    android:textColor="@drawable/btn_rounded_primary"
+                    android:textSize="20dp" />
+            </LinearLayout>
+
+
+            <com.rengwuxian.materialedittext.MaterialAutoCompleteTextView
+                android:id="@+id/editTextName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Title"
+                android:inputType="text"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp"
+                app:met_floatingLabel="highlight"
+                app:met_hideUnderline="true"
+                app:met_textColorHint="@color/colorPrimary" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/c_type"
+                android:layout_marginBottom="10dp"
+                android:background="@color/colorPrimary" />
+
+            <com.rengwuxian.materialedittext.MaterialMultiAutoCompleteTextView
+                android:id="@+id/editUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Notes"
+                android:inputType="text"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp"
+                app:met_floatingLabel="highlight"
+                app:met_hideUnderline="true"
+                app:met_textColorHint="#666666" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/c_type"
+                android:layout_marginBottom="10dp"
+                android:background="@color/colorPrimary" />
+
+            <com.rengwuxian.materialedittext.MaterialMultiAutoCompleteTextView
+                android:id="@+id/editTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Time"
+                android:inputType="text"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp"
+                app:met_floatingLabel="highlight"
+                app:met_hideUnderline="true"
+                app:met_textColorHint="#666666" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/c_type"
+                android:layout_marginBottom="10dp"
+                android:background="@color/colorPrimary" />
+
+            <com.rengwuxian.materialedittext.MaterialMultiAutoCompleteTextView
+                android:id="@+id/editDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Pick A Date "
+                android:inputType="number"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp"
+                app:met_floatingLabel="highlight"
+                app:met_hideUnderline="true"
+                app:met_textColorHint="#666666" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/c_type"
+                android:layout_marginBottom="10dp"
+                android:background="@color/colorPrimary" />
+
+            <Button
+                android:id="@+id/buttonUpdateEmployee"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Update" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</FrameLayout>

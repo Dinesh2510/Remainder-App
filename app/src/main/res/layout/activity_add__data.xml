@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffff">
+
+
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20sp"
+        android:background="#ffff"
+        android:orientation="vertical"
+        android:padding="20dp"
+        tools:context=".Sqlite.MainActivity">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:src="@drawable/head" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:text="Add Your Notes"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary" />
+
+        <com.rengwuxian.materialedittext.MaterialAutoCompleteTextView
+            android:id="@+id/et_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/add_title"
+            android:inputType="text"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15sp"
+            app:met_floatingLabel="highlight"
+            app:met_hideUnderline="true"
+            app:met_textColorHint="#666666" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/c_type"
+            android:layout_marginBottom="10dp"
+            android:background="@color/colorPrimary" />
+
+
+        <com.rengwuxian.materialedittext.MaterialAutoCompleteTextView
+            android:id="@+id/et_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/details"
+            android:inputType="text"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15sp"
+            app:met_floatingLabel="highlight"
+            app:met_hideUnderline="true"
+            app:met_textColorHint="#666666" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/c_type"
+            android:layout_marginBottom="10dp"
+            android:background="@color/colorPrimary" />
+
+        <com.rengwuxian.materialedittext.MaterialAutoCompleteTextView
+            android:id="@+id/et_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/date"
+            android:inputType="text"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15sp"
+            app:met_floatingLabel="highlight"
+            app:met_hideUnderline="true"
+            app:met_textColorHint="#666666" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/c_type"
+            android:layout_marginBottom="10dp"
+            android:background="@color/colorPrimary" />
+
+        <com.rengwuxian.materialedittext.MaterialAutoCompleteTextView
+            android:id="@+id/et_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/time"
+            android:inputType="text"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15sp"
+            app:met_floatingLabel="highlight"
+            app:met_hideUnderline="true"
+            app:met_textColorHint="#666666" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/c_type"
+            android:layout_marginBottom="10dp"
+            android:background="@color/colorPrimary" />
+
+        <Button
+            android:id="@+id/viewdata"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:background="@drawable/btn_rounded_primary"
+            android:text="View all task "
+            android:textColor="#fff" />
+
+
+    </LinearLayout>
+</ScrollView>
