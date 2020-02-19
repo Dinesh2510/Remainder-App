@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="0dp"
@@ -40,7 +40,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:text="Edit Form"
-                    android:textColor="@drawable/btn_rounded_primary"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="20dp" />
             </LinearLayout>
 
@@ -69,7 +69,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Enter Notes"
-                android:inputType="text"
+                android:inputType="textMultiLine"
                 android:textColor="@color/colorPrimary"
                 android:textSize="15sp"
                 app:met_floatingLabel="highlight"
