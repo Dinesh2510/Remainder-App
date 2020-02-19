@@ -3,8 +3,12 @@ package com.demo.addnotes;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -21,14 +25,18 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TimePicker;
 
+import com.demo.addnotes.NewData.AlertReceiver;
+import com.demo.addnotes.NewData.TimePickerFragment;
 import com.shashank.sony.fancytoastlib.FancyToast;
 
+import java.text.DateFormat;
 import java.util.Calendar;
 
-public class Add_Data extends AppCompatActivity {
+public class Add_Data extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
 
     String str_title, str_notes, str_date, str_time;
     EditText et_title, et_notes, et_date, et_time;
+
     Button save, rv_btn;
     public static final String DATABASE_NAME = "TaskDatabases.db";
     SQLiteDatabase mDatabase;
@@ -90,29 +98,22 @@ public class Add_Data extends AppCompatActivity {
 
                         monthOfYear = monthOfYear + 1;
                         et_date.setText("" + year + "-" + monthOfYear + "-" + dayOfMonth);
+
                     }
                 });
+
 
             }
         });
 
         et_time.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                final Calendar cldr = Calendar.getInstance();
-                int hour = cldr.get(Calendar.HOUR_OF_DAY);
-                int minutes = cldr.get(Calendar.MINUTE);
-                // time picker dialog
-                picker = new TimePickerDialog(Add_Data.this,
-                        new TimePickerDialog.OnTimeSetListener() {
-                            @Override
-                            public void onTimeSet(TimePicker tp, int sHour, int sMinute) {
-                                et_time.setText(sHour + ":" + sMinute);
-                            }
-                        }, hour, minutes, true);
-                picker.show();
+            public void onClick(View v) {
+                DialogFragment timePicker = new TimePickerFragment();
+                timePicker.show(getSupportFragmentManager(), "time picker");
             }
         });
+
 
         rv_btn = findViewById(R.id.viewdata);
         rv_btn.setOnClickListener(new View.OnClickListener() {
@@ -122,7 +123,16 @@ public class Add_Data extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
 
+    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+        Calendar c = Calendar.getInstance();
+        c.set(Calendar.HOUR_OF_DAY, hourOfDay);
+        c.set(Calendar.MINUTE, minute);
+        c.set(Calendar.SECOND, 0);
+
+        updateTimeText(c);
+        startAlarm(c);
     }
 
 
@@ -154,7 +164,6 @@ public class Add_Data extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here.
         int id = item.getItemId();
 
         if (id == R.id.action_favorite) {
@@ -166,9 +175,9 @@ public class Add_Data extends AppCompatActivity {
             str_time = et_time.getText().toString();
 
 
-            if (str_title.isEmpty()) {
+            if (str_title.isEmpty() || str_notes.isEmpty() || str_date.isEmpty() || str_time.isEmpty()) {
 
-                FancyToast.makeText(getApplicationContext(), "Fill the Title", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+                FancyToast.makeText(getApplicationContext(), "Fill the Form", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
 
             } else {
 
@@ -212,5 +221,25 @@ public class Add_Data extends AppCompatActivity {
         Log.d("3_firstStart", "onCreate: " + editor);
 
     }
+
+    private void updateTimeText(Calendar c) {
+        String timeText = "Alarm set for: ";
+        timeText += DateFormat.getTimeInstance(DateFormat.SHORT).format(c.getTime());
+
+        et_time.setText(timeText);
+    }
+
+    private void startAlarm(Calendar c) {
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(this, AlertReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 1, intent, 0);
+
+        if (c.before(Calendar.getInstance())) {
+            c.add(Calendar.DATE, 1);
+        }
+
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), pendingIntent);
+    }
+
 }
 

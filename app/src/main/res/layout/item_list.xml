@@ -35,6 +35,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:justificationMode="inter_word"
             android:text="Item Title"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/colorPrimary" />
@@ -146,9 +147,9 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="end"
             android:layout_margin="15dp"
             android:gravity="end"
-            android:layout_gravity="end"
             android:orientation="horizontal">
 
             <TextView

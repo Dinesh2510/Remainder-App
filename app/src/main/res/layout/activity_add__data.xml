@@ -53,7 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/details"
-            android:inputType="text"
+            android:inputType="textMultiLine"
             android:textColor="@color/colorPrimary"
             android:textSize="15sp"
             app:met_floatingLabel="highlight"

@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".TaskList" />
+        <receiver android:name=".NewData.AlertReceiver" />
 
         <activity android:name=".Add_Data">
             <intent-filter>
